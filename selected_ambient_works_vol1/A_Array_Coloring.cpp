@@ -5,17 +5,15 @@ using namespace std;
 void solve(){
   int n;
   cin >> n;
-
   vector<int> a(n);
-  for(auto& e: a) cin >> e;
-  int oddNumbers = 0;
-  for(auto e : a) if(e % 2 != 0)oddNumbers += 1;
-
-  if(oddNumbers % 2 == 0){
-    cout << "YES\n";
-  } else{
-    cout << "NO\n";
+  int oddCnt = 0;
+  for(auto e : a){
+    cin >> e;
+    if(e % 2 != 0) oddCnt += 1;
   }
+
+  if(oddCnt % 2 != 0) cout << "NO\n";
+  else cout << "YES\n";
 
 }
 
