@@ -120,4 +120,8 @@ find the maximum count
 
 [Coins](https://codeforces.com/problemset/problem/1814/A) - **Math**
 
-$2$ coins of denomination $k$ can be replaced with $k$ coins of denomination $2$, therefore we only ever need either $0$ or $1$ $k$ coins, because if its greater than 1, its the same thing as having $k$ coins of denomination 2 + k coin. therefore, if the remaining number is even its possible
+$2$ coins of denomination $k$ can be replaced with $k$ coins of denomination $2$, therefore we only ever need either $0$ or $1$ $k$ coins, because if its greater than 1, 2 coins of denomination k will be swapped out with 1 coin of denomination 2. if the answers exists, then there is such a set of coins, where there is no more than 1 coin of denomination k
+
+[Walking Master]([Problem - 1806A - Codeforces](https://codeforces.com/problemset/problem/1806/A)) - **Greedy**
+
+Notice for every $(x+1, y+1)$ moves, $x-y$  is non-increasing and non decreasing,  while $(x-1, y)$ $y$ is non-decreasing. therefore, its possible to move from $(a,b)$ to $(c, d)$ if $b >= d$ AND $a-b >= c-d$ . hence, the answer is, $(d-b)+(a+(d-b)-c)$ in other words, distance to d + (distance after doing d operation - c)
