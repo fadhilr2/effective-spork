@@ -5,8 +5,25 @@ using namespace std;
 void solve(){
   int n;
   cin >> n;
+  
+  int sum = 0;
+  for(int i = 0; i < n; i++){
+    int e;
+    cin >> e;
+    sum += e;
+  };
 
-  cout << (n+1)/10 << "\n";
+  if(sum == n){
+    cout << 0 << "\n";
+  } else if(sum < n){
+    //sum+k=n+1
+    cout << 1 << "\n";
+  } else{
+    cout << sum-n << "\n";
+  }
+
+
+
 
 }
 

@@ -3,10 +3,11 @@ using namespace std;
 #define int long long
 
 void solve(){
-  int n;
-  cin >> n;
+  int n, m, i, j;
+  cin >> n >> m >> i >> j;
 
-  cout << (n+1)/10 << "\n";
+  cout << n << " " << m << " ";
+  cout << 1 << " " << 1 << "\n";
 
 }
 

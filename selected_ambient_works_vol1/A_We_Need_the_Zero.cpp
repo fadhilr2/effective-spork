@@ -6,7 +6,23 @@ void solve(){
   int n;
   cin >> n;
 
-  cout << (n+1)/10 << "\n";
+  int x = 0;
+  vector<int> a(n);
+  for(auto& e : a){
+    cin >> e;
+    x ^= e;
+  }
+
+
+  if(n % 2 ==0){
+    if(x == 0){
+      cout << 1 << "\n";
+    } else{
+      cout << -1 << "\n";
+    }
+  } else{
+    cout << x << "\n";
+  }
 
 }
 

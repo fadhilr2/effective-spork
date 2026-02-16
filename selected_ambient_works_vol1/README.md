@@ -17,7 +17,7 @@ create an infinite water source. If ... exists, the answer is always 2 (to
 fill the initial cells). Otherwise, you must manually fill every empty cell,
 making the answer equal to the total count of . characters.
 
-[Number Game](https://codeforces.com/problemset/problem/1899/A) - **Greedy**
+[Number Game](https://codeforces.com/problemset/problem/1899/A) - **Math**
 
  The game revolves around divisibility by 3. Vanya wins if she can immediately make $n$ divisible by 3. If $n \pmod 3 \neq 0$, Vanya wins on her first turn by adding or
 subtracting 1. If $n \pmod 3 = 0$, Vova can always counter Vanya’s moves to keep the number divisible by 3 on his turn, eventually winning.
@@ -90,7 +90,7 @@ formed using $n/2$ twos provided $k \ge 2$, while an odd $n$ requires at least
 one 3 combined with $(n-3)/2$ twos if $k \ge 3$; otherwise, it is impossible to
 represent $n$ using the allowed integers
 
-[Grasshopper on a Line](https://codeforces.com/problemset/problem/1845/A) - **Greedy**
+[Grasshopper on a Line](https://codeforces.com/problemset/problem/1845/A) - **Math**
 
 if $x$ is not divisible by $k$ then print $x$
 
@@ -122,6 +122,66 @@ find the maximum count
 
 $2$ coins of denomination $k$ can be replaced with $k$ coins of denomination $2$, therefore we only ever need either $0$ or $1$ $k$ coins, because if its greater than 1, 2 coins of denomination k will be swapped out with 1 coin of denomination 2. if the answers exists, then there is such a set of coins, where there is no more than 1 coin of denomination k
 
-[Walking Master]([Problem - 1806A - Codeforces](https://codeforces.com/problemset/problem/1806/A)) - **Greedy**
+[Walking Master]([Problem - 1806A - Codeforces](https://codeforces.com/problemset/problem/1806/A)) - **Math**
 
-Notice for every $(x+1, y+1)$ moves, $x-y$  is non-increasing and non decreasing,  while $(x-1, y)$ $y$ is non-decreasing. therefore, its possible to move from $(a,b)$ to $(c, d)$ if $b >= d$ AND $a-b >= c-d$ . hence, the answer is, $(d-b)+(a+(d-b)-c)$ in other words, distance to d + (distance after doing d operation - c)
+Notice for every $(x+1, y+1)$ moves, $x-y$  is invariate (unchanging),  while for every $(x-1, y)$ moves, $y$ is non-decreasing. therefore, its possible to move from $(a,b)$ to $(c, d)$ if $b >= d$ AND $a-b >= c-d$ . hence, the answer is, $(d-b)+(a+(d-b)-c)$ 
+
+[Polycarp and coins](https://codeforces.com/problemset/problem/1551/A) - **Math**
+
+Make $c_1 = c_2$ and $c_1+2c_2=n$ then $c_1+2c_1=n; 3c_1=n;c_1=n/3$ . Therefore, initialized $c_1$ and $c_2$ to $n/3$ , now collect remainders to fill the gap
+
+if remainder is $0$ then there's no need to get more coins
+
+if remainder is $1$ then we need to get $1$ more coin of denomination $1$ , therefore $c_1=c_2+1$ or $c_1 += 1$
+
+if remainder is $2$ then we need to get $1$ more coin of denomination $2$ , therefore $c_2 = c_1 + 1$ or $c_2 +=c_1$ 
+
+a number remainder is always ${[0, n-1]}$ 
+
+[Odd Set](https://codeforces.com/problemset/status?my=on) - **Math**
+
+if $oddCnt == evenCnt$ then its possible because to produce $n$ pairs where the sum of each pair are odd there must be 1 even and 1 odd in each pair, therefore if there isnt an equal amount of even and odd, some pairs will have numbers with the same parity
+
+[Arithmetic Array]([Problem - 1537A - Codeforces](https://codeforces.com/problemset/problem/1537/A)) - **Math**
+
+mean is equal to 1 if the sum is equal to n
+
+if sum == 0 we dont need to add more number
+
+if sum < n the answer is always 1, because we can add 1 k numbers, such that $sum+k=n+1$
+
+if sum > n the answer is $sum-n$ , because all we had to do is add 0s, until $n$ is equal to sum
+
+[Digit Sum](https://codeforces.com/contest/1553/problem/A) - **Greedy**
+
+number with last digit 9 is an interesting number, else the digit will increase by 1 making it greater than x. Therefore, the answer is $(n+1)/10$  just count how many tens are there from 1 to n
+
+[We Need The Zero]([Problem - 1805A - Codeforces](https://codeforces.com/problemset/problem/1805/A)) - **Bitmask**
+
+$b_i=a_i\oplus x$ this means the set of $b$ can be represented as ${(a_i\oplus x)(a_{i+1}\oplus x)...(a_n\oplus x)}$ we can rewrite $b_1\oplus b_2\oplus ... \oplus b_n = 0$ as $(a_i\oplus x)\oplus(a_{i+1}\oplus x)\oplus ...\oplus (a_n\oplus x) = 0$ recall XOR commutative property $a\oplus b=b\oplus a$ therefore $(x\oplus x)\oplus(x\oplus x)\oplus ...\oplus (a_{n-1}\oplus a_n) = 0$  
+
+if there are an even amount of $x$ , it will cancel each other out, therefore leaving us with $a_1\oplus a_2\oplus ,...,\oplus a_n$ ,  if the remainder is equal to $0$ then we can output any number. Otherwise, it is not possible
+
+if there are an odd amount of $x$ , it will leave us with $x\oplus a_1\oplus a_2\oplus ,...,\oplus a_n$, therefore in order for it to be zero, $x=a_1\oplus a_2\oplus ,...,\oplus a_n$
+
+[Prepend and Append](https://codeforces.com/problemset/problem/1791/C) - **Implementation**
+
+count how many 0 1 or 1 0 must be removed, then subtract by $n$ that will gives the initial string length
+
+while(a[left] != a[right]) do count += 1
+
+answer is $n-(2*count)$
+
+ [Serval and Mocha's Array](https://codeforces.com/contest/1789/problem/A) - **Math**
+
+Considering $n >= 2$, the following inequality holds $2 <= i <= n$ 
+
+$gcd(\{a_1,a_2,...,a_i\})<=gcd(a_1,a_2)<=2$ 
+
+if there exist a pair $gcd(x, y)<=2$ , we can move it to the front and as the prefix length grew, the gcd will decrease or remain unchange   
+
+[One and Two](https://codeforces.com/problemset/problem/1788/A) - **Math**
+
+There should be same number of twos at $a_1, a_2,...,a_k$ and $a_{k+1},a_{k+2},...,a_{n}$. Therefore we must count how many twos and if its not even, then its not possible, otherwise find the separation point where two sides will have same amount of twos
+
+ 

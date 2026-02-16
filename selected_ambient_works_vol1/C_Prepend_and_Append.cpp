@@ -5,9 +5,19 @@ using namespace std;
 void solve(){
   int n;
   cin >> n;
+  string s;
+  cin >> s;
 
-  cout << (n+1)/10 << "\n";
+  int left = 0, right = n-1;
 
+  int cnt = 0;
+  while(left < right &&(s[left] != s[right])){
+    cnt += 1;
+    left += 1;
+    right -= 1;
+  }
+
+  cout << n - (2*cnt) << "\n";
 }
 
 int32_t main(){

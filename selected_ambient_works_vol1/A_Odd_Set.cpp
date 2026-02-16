@@ -6,8 +6,16 @@ void solve(){
   int n;
   cin >> n;
 
-  cout << (n+1)/10 << "\n";
+  int odd = 0, even = 0;
+  for(int i = 0; i < 2*n; i++){
+    int e;
+    cin >> e;
+    if(e % 2 == 0) even += 1;
+    else odd += 1;
+  }
 
+  if(odd == even) cout << "Yes\n";
+  else cout << "No\n";
 }
 
 int32_t main(){

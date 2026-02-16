@@ -2,12 +2,21 @@
 using namespace std;
 #define int long long
 
-void solve(){
+void solve(){ 
   int n;
   cin >> n;
 
-  cout << (n+1)/10 << "\n";
+  int c2 = n/3;
+  int c1 = n/3;
+  int r = n % 3;
 
+  if(r == 1){
+    c1 = c2 + 1;   
+  } else if (r == 2){
+    c2 = c1 + 1;
+  }
+
+  cout << c1 << " " << c2 << "\n";
 }
 
 int32_t main(){

@@ -6,7 +6,20 @@ void solve(){
   int n;
   cin >> n;
 
-  cout << (n+1)/10 << "\n";
+  vector<int> a(n);
+  for(auto& e : a) cin >> e;
+
+  for(int i = 0; i < n-1; i++){
+    for(int j = i+1; j < n; j++){
+      if(__gcd(a[i], a[j]) <= 2){
+        cout << "Yes\n";
+        return;
+      }
+    }
+  }
+
+  cout << "No\n";
+
 
 }
 
