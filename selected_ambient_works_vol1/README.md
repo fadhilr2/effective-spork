@@ -3,7 +3,7 @@ A reverse operation of length 2 is functionally identical to a swap.If $k
 \ge 2$, we can swap any adjacent elements (like Bubble Sort), meaning the array
 can always be sorted. If $k = 1$, the array must already be sorted to be valid.
 
-[Line Trip](https://codeforces.com/problemset/problem/1901/A) - **Greedy on Distance** 
+[Line Trip](https://codeforces.com/problemset/problem/1901/A) - **Greedy**
 
 The fuel capacity $V$ must be large enough to cover the maximum
 gap between any two points. The distance between the last station $a_n$ and
@@ -184,4 +184,28 @@ if there exist a pair $gcd(x, y)<=2$ , we can move it to the front and as the pr
 
 There should be same number of twos at $a_1, a_2,...,a_k$ and $a_{k+1},a_{k+2},...,a_{n}$. Therefore we must count how many twos and if its not even, then its not possible, otherwise find the separation point where two sides will have same amount of twos
 
- 
+[Make it Beautiful](https://codeforces.com/problemset/problem/1783/A) - **Constructive**
+
+if we put the maximum and minimum element at the front, for every element starting from 3, the sum before it will be greater than it. 
+
+However, if maximum == minimum, the second element can make the array ugly, therefore if maximum == minimum, this means theres only 1 element, hence impossible to construct a beatiful array
+
+[Everybody Likes Good Arrays](https://codeforces.com/contest/1777/problem/A)- **Math**
+
+Replace every even numbers with $0$ and every odd numbers with $1$ now the operation is equivalent to $a[i]=a[i+1]$ .
+
+Note that the amount of $a[i]\neq a[i+1]$ remains constant no matter how many operation is done, therefore every segment of 0s and 1s can be handled independently($odd*odd=odd$; $even*even=even$). Now to make every $a[i]$ not having same parity with $a[i+1]$ , we must reduce every segment length to 1,  says $L$ is the length of the segment, operation to reduce segment size to 1 is $L-1$ . says k is the amount of segments, therefore the answer is $(L_1-1)+(L_2-1)+...+(L_k-1)$   , simplify it to $(L_1+L_2+...+L_k)-(1+1+...k)$ .Now, the sum of segment length is equal to $n$ , therefore $n-k$. 
+
+We can simplify it even further, Note that the amount of segments is equal to amount of separators($a[i]\neq a[i+1]$) + 1 , Let $S$ be the amount of separators, then$n-(x+1)=n-x-1$
+
+[Extremely Round](https://codeforces.com/problemset/problem/1766/A) - **Greedy**
+
+Note that the constraints is $1 <= n <=999999$, notice that extremely round numbers are rare. The naive approach is to check from $1$ to $n$ making the complexity $O(tn)$ . We can optimize this by finding all the extremely round number from $1$ to $9999999$ once only. And check how many round numbers are there from 1 to $n$ using that array for each test case
+
+[Two Permutations](https://codeforces.com/contest/1761/problem/A) - **Math**
+
+if $a+b=n$ we'll be using all the numbers, therefore the longest common prefix and suffix will be the same, and we cant create a different permutation, this case is only true if $a=b=n$
+
+if$a+b=n-1$ , this means theres 1 number left in the middle, thus making $a+1$ or  $b+1$ 
+
+to create a different permutation, there must be a buffer zone of at least two number, therefore $a+b+2 <= n$ , this ensures element at $a+1$ is different from $n-b$ 
