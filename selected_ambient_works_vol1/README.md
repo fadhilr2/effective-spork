@@ -204,8 +204,8 @@ Note that the constraints is $1 <= n <=999999$, notice that extremely round numb
 
 [Two Permutations](https://codeforces.com/contest/1761/problem/A) - **Math**
 
-if $a+b=n$ we'll be using all the numbers, therefore the longest common prefix and suffix will be the same, and we cant create a different permutation, this case is only true if $a=b=n$
+if $a+b=n$ all the numbers are used, therefore the longest common prefix and suffix will be the same, and we cant create a different permutation, this case is only true if $a=b=n$
 
 if$a+b=n-1$ , this means theres 1 number left in the middle, thus making $a+1$ or  $b+1$ 
 
-to create a different permutation, there must be a buffer zone of at least two number, therefore $a+b+2 <= n$ , this ensures element at $a+1$ is different from $n-b$ 
+to create a different permutation, there must be a buffer zone of at least two number, therefore $a+b+2 <= n$ , this ensures element at $a+1$ (after prefix)is different from $n-b$ (before the suffix)
