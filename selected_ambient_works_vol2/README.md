@@ -87,3 +87,21 @@ Cyclically rotating an element means displacing every $a_i$ for $1 <=i<=n$ by $1
 3. Check for $a_i$ and $a_{i+1}$  . Given enough rotation for the whole array, eventually $a_{i+1}$ will be $a_1$ and $a_i$ will be $a_n$ 
 
 4. Check for $a_1-a_n$ . Given enough rotation for the whole array, eventually $a_1$ and $a_n$ will be swapped
+
+[Make It Increasing]([Problem - 1675B - Codeforces](https://codeforces.com/problemset/problem/1675/B)) - **Greedy**
+
+Notice that an array is in increasing order if all the element are less than $a_n$ 
+
+Start the loop from $n-1$ divide $a_i$ by $2$ until $a_i$ is less than $a_{i+1}$ if at some point $a_{i+1}$ is $0$ then it wont be possible  because there are no possitive integers less than $0$
+
+[Deletive Editing]([Problem - 1666D - Codeforces](https://codeforces.com/problemset/problem/1666/D?adcd1e=caf4fy5tvfa9yh&csrf_token=7f955356994948207dacd978c84a9981)) - **Implementation**
+
+Notice that a word is equal if both have the same amount of characters frequency.
+
+Match character frequency by deleting leftmost occurrence, if at some point $s_i$   frequency is less than $t_i$ frequency then it is not possible 
+
+[Array Cloning Technique]([Problem - 1665B - Codeforces](https://codeforces.com/problemset/problem/1665/B)) - **Implementation**
+
+Notice that for every cloning we are doubling the frequency of each charater.
+
+We only have to keep track the largest frequency, keep doubling until largest frequency is equal to $n$ , at some point after largest frequency is doubled, it will be greater than $n$ therefore we only have to take what's needed $n-largestFreq$  
