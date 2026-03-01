@@ -23,12 +23,11 @@ void solve(){
             cout << "NO\n";
             return;
         }
-        while(e.second > tFreq[e.first]){
+        int diff = e.second - tFreq[e.first];
+        while(diff){
             auto index = s.find(e.first);
-
             s.erase(index, 1);
-
-            e.second -= 1;
+            diff -= 1;
         }
     }
 

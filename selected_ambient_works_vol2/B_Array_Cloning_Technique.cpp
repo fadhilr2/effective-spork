@@ -26,11 +26,7 @@ void solve(){
         //clone it
         ops += 1;
 
-        if(largestFreq * 2 <= n){
-            ops += (largestFreq * 2) - largestFreq;
-        } else if(largestFreq * 2 > n){
-            ops += (n - largestFreq);
-        }
+        ops += min(largestFreq, n-largestFreq);
         largestFreq *= 2;
     }
     cout << ops << "\n";

@@ -76,7 +76,7 @@ To find out if the sum changes after changing the element from $a_l,a_{l+1},\dot
 
 to make adjacent element not divisible by $a_i$ , both elements must be of different parity or divisor ($a_i$) is greater than its adjacent element. Therefore, add 1 if adjacent element is divisible by $a_i$ this will make the adjacant element of different parity. But the problem is, $1$ can divide anything regardless of its parity, therefore we have to make 1 to $2$ , as $2$ cannot divide odd numbers.
 
-[Mainak and Array]([Problem - 1726A - Codeforces](https://codeforces.com/problemset/problem/1726/A)) - **Greedy**
+[Mainak and Array]([Problem - 1726A - Codeforces](https://codeforces.com/problemset/problem/1726/A) - **Greedy**
 
 Cyclically rotating an element means displacing every $a_i$ for $1 <=i<=n$ by $1$ . To maximize the value of $a_n-1$ .  we would only have to check 4 cases, this covered all possible combination of $a_n$ and $a_1$
 
@@ -88,20 +88,81 @@ Cyclically rotating an element means displacing every $a_i$ for $1 <=i<=n$ by $1
 
 4. Check for $a_1-a_n$ . Given enough rotation for the whole array, eventually $a_1$ and $a_n$ will be swapped
 
-[Make It Increasing]([Problem - 1675B - Codeforces](https://codeforces.com/problemset/problem/1675/B)) - **Greedy**
+[NIT Destroys the Universe]([Problem - 1696B - Codeforces](https://codeforces.com/problemset/problem/1696/B) - **Greedy**
+
+Notice that at most we only need $2$ operations.
+
+if there's a exist a non zero segment with zero in the middle then its $2$ 
+
+otherwise its $1$ 
+
+if amount of zeroes is equal to $n$ then its $0$ 
+
+[Avtobus]([Problem - 1679A - Codeforces](https://codeforces.com/problemset/problem/1679/A) - **Math**
+
+Notice that if $n$ is odd it's not possible, therefore $n$ must be even. Notice that the remainder of division by $6$ is $0,2,4$ .
+
+To get the minimum, we must fit as much bus $6$ wheels, and we will get several remainder case, which ares
+
+1. remainder is $0$ , $n$ divisible by $6$ 
+
+2. remainder is $2$ , we can borrow $2$ from $6$ to create a $4$ wheel bus
+
+3. remainder is $4$ , we can fit a $4$ wheel bus
+
+To get the maximum, we must fit as much bus $4$ wheels 
+
+[Make It Increasing]([Problem - 1675B - Codeforces](https://codeforces.com/problemset/problem/1675/B) - **Greedy**
 
 Notice that an array is in increasing order if all the element are less than $a_n$ 
 
 Start the loop from $n-1$ divide $a_i$ by $2$ until $a_i$ is less than $a_{i+1}$ if at some point $a_{i+1}$ is $0$ then it wont be possible  because there are no possitive integers less than $0$
 
-[Deletive Editing]([Problem - 1666D - Codeforces](https://codeforces.com/problemset/problem/1666/D?adcd1e=caf4fy5tvfa9yh&csrf_token=7f955356994948207dacd978c84a9981)) - **Implementation**
+[Deletive Editing]([Problem - 1666D - Codeforces](https://codeforces.com/problemset/problem/1666/D?adcd1e=caf4fy5tvfa9yh&csrf_token=7f955356994948207dacd978c84a9981) - **Greedy**
 
-Notice that a word is equal if both have the same amount of characters frequency.
+The key observation is that the order in which the letters are called out does not matter in this game.
 
-Match character frequency by deleting leftmost occurrence, if at some point $s_i$   frequency is less than $t_i$ frequency then it is not possible 
+Notice that one of the invariant properties of equal words is both have the same amount of characters frequency.
 
-[Array Cloning Technique]([Problem - 1665B - Codeforces](https://codeforces.com/problemset/problem/1665/B)) - **Implementation**
+Match character frequency by deleting leftmost occurrence, if at some point $s_i$   frequency is less than $t_i$ frequency then it is not possible. After character frequency is matched, check if both string are equal.
+
+[Array Cloning Technique]([Problem - 1665B - Codeforces](https://codeforces.com/problemset/problem/1665/B) - **Greedy**
 
 Notice that for every cloning we are doubling the frequency of each charater.
 
-We only have to keep track the largest frequency, keep doubling until largest frequency is equal to $n$ , at some point after largest frequency is doubled, it will be greater than $n$ therefore we only have to take what's needed $n-largestFreq$  
+We only have to keep track the largest frequency, keep doubling until largest frequency is equal to $n$ . At some point after largest frequency is doubled, it will be greater than $n$ therefore we only have to take what's needed $n-largestFreq$  
+
+[Make AP]([Problem - 1624B - Codeforces](https://codeforces.com/problemset/problem/1624/B) - **Math**
+
+Fix on one number, and assume the rest forms an Arithmetic Progression. manipulate the fixed number, such that it forms an Arithmetic Progression, let $x$ be the new number and $y$ be the initial numbers. If $x$ is divisible by $y$ therefore $x$ is a multiplies of $y$ hence $m$ is equal to $x/y$ . We also have to check if $m$ is positive, recall that $0$ is not a positive, therefore we have to check if $x/y > 0$ 
+
+1. Fixing on $a$ , for $a$ to be AP, $a$ must be equal to $b-d$ , we can get $d$ by $c-b$ therefore $a=b-(c-b)=b-c+b=2b-c$ 
+
+2. Fixing on $c$ , for $c$ to be AP, $c$ must be equal to $b+d$ , we can get $d$ by $b-a$ , therefore $c=b+(b-a)=2b-a$ 
+
+3. Fixing on $b$ , for $b$ to be AP, $b$ must satisfy $b-a=c-b$ , therefore $b=(a+c)/2$ for this to be AP, $a+c$ must be even
+
+[Odd Grasshopper]([Problem - B - Codeforces](https://codeforces.com/contest/1607/problem/B) -  **Math**
+
+Notice that for every multiples of $4$ steps the coordinate goes back to $x_0$ 
+
+$0 \rightarrow -1 \rightarrow 1 \rightarrow 4 \rightarrow 0 \rightarrow -5 \rightarrow 1 \rightarrow 8 \rightarrow 0$
+Knowing this we can deduce the following for $x_0 = 0$ 
+
+if $n \equiv 1 \mod{4}$ then its $n*-1$ 
+
+if $n \equiv 2 \mod{4}$ then its $n-1$
+
+if $n \equiv 3 \mod{4}$ then its $n+1$
+
+if $n\equiv 0 \mod {4}$ then its $x_0$ 
+
+if $x_0$ is even then its going be the same case as $0$ because both are even, therefore will go the same way, then we can treat the $0$ cases as $D$ for displacement, therefore $x_0+D$ . For odd numbers, its going be the opposite way $x_0-D$ 
+
+[AB Balance]([Problem - A - Codeforces](https://codeforces.com/contest/1606/problem/A) - **Greedy**
+
+Notice that $s$ balanced is determined by $s_1$ and $s_n$ .
+
+if $s_1=s_n$ then its balanced. if we start at 'a' and we have to end with 'a', you must eventually end up back at 'a' by the end of the string, you are forced to transition back from 'b' to 'a' at some point, creating a matching "ba".
+
+if $s_1\neq s_n$ then it will never be balanced.  If we start at 'a' and end with 'b', then we have made exactly one more transition from 'a' to 'b' than 'b' to 'a'. For example "abaabb"
