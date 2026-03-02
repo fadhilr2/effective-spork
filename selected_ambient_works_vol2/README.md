@@ -166,3 +166,7 @@ Notice that $s$ balanced is determined by $s_1$ and $s_n$ .
 if $s_1=s_n$ then its balanced. if we start at 'a' and we have to end with 'a', you must eventually end up back at 'a' by the end of the string, you are forced to transition back from 'b' to 'a' at some point, creating a matching "ba".
 
 if $s_1\neq s_n$ then it will never be balanced.  If we start at 'a' and end with 'b', then we have made exactly one more transition from 'a' to 'b' than 'b' to 'a'. For example "abaabb"
+
+[Make it Divisible by 25]([Problem - 1593B - Codeforces](https://codeforces.com/problemset/problem/1593/B) - **greedy**
+
+Notice that numbers that are divisible by $25$ always end with these digits $25, 50, 75, 00$ Solve the subtask of digit $x$ and $y$ remove digits from the right until its equal to $y$ remove digits from second last digit until its equal to $x$ find the minimum operations 
