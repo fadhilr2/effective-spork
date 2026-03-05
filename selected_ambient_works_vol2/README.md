@@ -170,3 +170,11 @@ if $s_1\neq s_n$ then it will never be balanced.  If we start at 'a' and end wit
 [Make it Divisible by 25]([Problem - 1593B - Codeforces](https://codeforces.com/problemset/problem/1593/B) - **greedy**
 
 Notice that numbers that are divisible by $25$ always end with these digits $25, 50, 75, 00$ Solve the subtask of digit $x$ and $y$ remove digits from the right until its equal to $y$ remove digits from second last digit until its equal to $x$ find the minimum operations 
+
+[Luntik and Subsequence]([Problem - B - Codeforces](https://codeforces.com/contest/1582/problem/B) - **Math**
+
+Notice that we can remove zeros and exactly one 1 to get $s-1$ , therefore we need to count the number of ways to remove zeros and multiply it by the number of ways to remove one $1$ .
+
+[Mocha and Math]([Problem - 1559A - Codeforces](https://codeforces.com/problemset/problem/1559/A)) - **Greedy**
+
+Notice that the result of $a \& b$ is always less than or equal to $min(a,b)$ . We can do AND operator for the whole array, as this guarantee to minimize the maximum values, as more value are added, $a_i\&a_{i+1}$ will be reduced or stayed the same

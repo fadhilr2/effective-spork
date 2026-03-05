@@ -1,51 +1,58 @@
-#include <bits/stdc++.h>
+#include "bits/stdc++.h"
 
 using namespace std;
+#define int long long
 
-const string subseqs[] = { "00", "25", "50", "75" };
+string substr[] = {"00", "25", "50", "75"};
 
-const int INF = 100;
+void solve(){
 
-int solve(string& s, string& t)
-{
-	int sptr = s.length() - 1;
+	int ans = 2e9;
 
-	int ans = 0;
-	while (sptr >= 0 && s[sptr] != t[1])
-	{
-		sptr--;
-		ans++;
+	int n;
+	cin >> n;
+
+	for(auto e : substr){
+		int ops = 0;
+		//find last digit of e
+		string num = to_string(n);
+
+		int j = num.length()-1;
+
+		while(j){
+			if(num[j] == e[1]){
+				j -= 1;
+				break;
+			}
+			j -= 1;
+			ops += 1;
+		}
+
+		while(j){
+			if(num[j] == e[0]){
+				break;
+			}
+
+			j -= 1;
+			ops += 1;
+		}
+
+		ans = min(ops, ans);
+
 	}
 
-	if (sptr < 0) return INF;
-
-	sptr--;
-
-	while (sptr >= 0 && s[sptr] != t[0])
-	{
-		sptr--;
-		ans++;
-	}
-
-	return sptr < 0 ? INF : ans;
+	cout << ans << "\n";
+	
 }
 
-int main()
-{
+
+int32_t main(){
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
 	int t;
 	cin >> t;
-
-	while (t--)
-	{
-		string n;
-		cin >> n;
-		
-		int ans = INF;
-		for (auto e : subseqs)
-			ans = min(ans, solve(n, e));
-
-		cout << ans << '\n';
-	}
-
+	while(t--) solve();
 	return 0;
 }
