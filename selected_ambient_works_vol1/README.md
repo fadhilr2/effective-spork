@@ -1,5 +1,5 @@
 [Halloumi Boxes](https://codeforces.com/problemset/problem/1903/A) - **Greedy**
-A reverse operation of length 2 is functionally identical to a swap.If $k
+A reverse operation of length 2 is functionally identical to a swap operation.If $k
 \ge 2$, we can swap any adjacent elements (like Bubble Sort), meaning the array
 can always be sorted. If $k = 1$, the array must already be sorted to be valid.
 
@@ -12,12 +12,12 @@ you must return to $a_n$ to refuel. $V = \max(a_1, a_2-a_1, \dots,
 a_n-a_{n-1}, 2(x-a_n))$.
 
 [Cover in Water](https://codeforces.com/problemset/problem/1900/A) - **Greedy**
-String Observations  If there are 3 consecutive empty cells (...), you can
+If there are 3 consecutive empty cells (...), you can
 create an infinite water source. If ... exists, the answer is always 2 (to
 fill the initial cells). Otherwise, you must manually fill every empty cell,
 making the answer equal to the total count of . characters.
 
-[Number Game](https://codeforces.com/problemset/problem/1899/A) - **Math**
+[Number Game](https://codeforces.com/problemset/problem/1899/A) - **Greedy**
 
  The game revolves around divisibility by 3. Vanya wins if she can immediately make $n$ divisible by 3. If $n \pmod 3 \neq 0$, Vanya wins on her first turn by adding or
 subtracting 1. If $n \pmod 3 = 0$, Vova can always counter Vanya’s moves to keep the number divisible by 3 on his turn, eventually winning.

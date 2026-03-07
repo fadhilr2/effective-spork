@@ -178,3 +178,11 @@ Notice that we can remove zeros and exactly one 1 to get $s-1$ , therefore we ne
 [Mocha and Math]([Problem - 1559A - Codeforces](https://codeforces.com/problemset/problem/1559/A)) - **Greedy**
 
 Notice that the result of $a \& b$ is always less than or equal to $min(a,b)$ . We can do AND operator for the whole array, as this guarantee to minimize the maximum values, as more value are added, $a_i\&a_{i+1}$ will be reduced or stayed the same
+
+[Exciting Bets]([Problem - 1543A - Codeforces](https://codeforces.com/problemset/problem/1543/A) - **Math**
+
+  
+
+[BadBoy]([Problem - 1537B - Codeforces](https://codeforces.com/problemset/problem/1537/B) - **Math**
+
+We can put the yoyo at top left, and bottom right. This will always guarantee the maximum distance, as the distance is always be $2*(n-1)+2*(m-1)$  . Given $i$ and $j$ as initial anton position, 1st yoyo is at $(1, 1)$, 2nd yoyo is at $(n, m)$ .         
