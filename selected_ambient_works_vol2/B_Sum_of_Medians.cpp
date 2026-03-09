@@ -9,14 +9,24 @@ vector<int> psum(const vector<int> &arr) {
 }
 
 void solve(){
-  int a, b;
-  cin >> a >> b;
+  int n, k;
+  cin >> n >> k;
 
-  if(a == b) cout << 0 << " " << 0 <<"\n";
-  else{
-    int g = abs(a-b);
-    cout << g << " " << min(a%g, g-(a%g)) << "\n";
+  vector<int> a(n*k);
+  for(auto& e : a) cin >> e;
+
+  //skips
+  int x = ((n+1)/2) - 1; 
+  x = n - x; 
+
+  int z = n*k;
+  int ans = 0;
+  while(k--){
+    z -= x;
+    ans += a[z];
   }
+
+  cout << ans << "\n";
 }
 
 int32_t main(){

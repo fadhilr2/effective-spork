@@ -9,14 +9,30 @@ vector<int> psum(const vector<int> &arr) {
 }
 
 void solve(){
-  int a, b;
-  cin >> a >> b;
+  int n;
+  cin >> n;
 
-  if(a == b) cout << 0 << " " << 0 <<"\n";
-  else{
-    int g = abs(a-b);
-    cout << g << " " << min(a%g, g-(a%g)) << "\n";
+  vector<int> a;
+
+  for(int i = 0; i < n; i++){
+    int e;
+    cin >> e;
+    a.push_back(e);
   }
+
+  for(int i = 1; i < n-1; i++){
+    if(a[i-1] < a[i] && a[i] > a[i+1]){
+      cout << "YES\n";
+      cout << i << " " << i+1 << " " << i+2 << "\n";
+      return;
+    }
+  }
+
+
+
+  cout << "NO\n";
+
+
 }
 
 int32_t main(){

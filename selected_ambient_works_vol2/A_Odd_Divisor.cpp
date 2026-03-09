@@ -9,13 +9,16 @@ vector<int> psum(const vector<int> &arr) {
 }
 
 void solve(){
-  int a, b;
-  cin >> a >> b;
+  int n;
+  cin >> n;
+  while(n > 1 && n % 2 == 0){
+    n /= 2;
+  }
 
-  if(a == b) cout << 0 << " " << 0 <<"\n";
-  else{
-    int g = abs(a-b);
-    cout << g << " " << min(a%g, g-(a%g)) << "\n";
+  if(n == 1){
+    cout << "NO\n";
+  } else{
+    cout << "YES\n";
   }
 }
 

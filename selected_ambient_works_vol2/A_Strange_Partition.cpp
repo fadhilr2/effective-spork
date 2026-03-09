@@ -1,4 +1,5 @@
 #include "bits/stdc++.h"
+#include <cmath>
 using namespace std;
 #define int long long
 
@@ -8,15 +9,27 @@ vector<int> psum(const vector<int> &arr) {
  return psums;
 }
 
-void solve(){
-  int a, b;
-  cin >> a >> b;
+int aceil(int a, int b){
+  return ((a+b-1)/b);
+}
 
-  if(a == b) cout << 0 << " " << 0 <<"\n";
-  else{
-    int g = abs(a-b);
-    cout << g << " " << min(a%g, g-(a%g)) << "\n";
-  }
+void solve(){
+  int n, x;
+  cin >> n >> x;
+
+  vector<int> a(n);
+  for(auto& e : a) cin >> e;
+
+  int sum = 0;
+  for(auto e : a) sum += e;
+
+  int min = aceil(sum, x);
+
+  int bmax = 0;
+  for(auto e : a) bmax += aceil(e, x);
+
+  cout << min << " " << bmax << "\n";
+
 }
 
 int32_t main(){

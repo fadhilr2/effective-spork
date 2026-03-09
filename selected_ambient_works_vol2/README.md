@@ -181,8 +181,32 @@ Notice that the result of $a \& b$ is always less than or equal to $min(a,b)$ . 
 
 [Exciting Bets]([Problem - 1543A - Codeforces](https://codeforces.com/problemset/problem/1543/A) - **Math**
 
-  
+Notice that $a-b$ never change, despite how many operation are applied. Let $g=abs(a-b)$ , recall that $gcd(x,y)=gcd(abs(x-y),y)$ therefore $gcd(a\pm k, b\pm k)=gcd(g, b\pm k)$ notice that $b$ can be any arbitrary number recall that $gcd(x,y)<=min(x,y)$ , therefore excitement will never exceeds $g$ . To find the minimum operation, we must make $b\pm k$ divisible by $g$ . Therefore, we choose the smallest $k$ such that $b\pm k$ is a multiple of $g$ . To find $k$ we must find the closest multiple of $g$ that is greater than or equal to $b$ .    
 
 [BadBoy]([Problem - 1537B - Codeforces](https://codeforces.com/problemset/problem/1537/B) - **Math**
 
-We can put the yoyo at top left, and bottom right. This will always guarantee the maximum distance, as the distance is always be $2*(n-1)+2*(m-1)$  . Given $i$ and $j$ as initial anton position, 1st yoyo is at $(1, 1)$, 2nd yoyo is at $(n, m)$ .         
+We can put the yoyo at top left, and bottom right. This will always guarantee the maximum distance, as the distance is always be $2*(n-1)+2*(m-1)$  .1st yoyo is at $(1, 1)$, 2nd yoyo is at $(n, m)$ .         
+
+[Odd Divisor]([Problem - 1475A - Codeforces](https://codeforces.com/problemset/problem/1475/A) - **Math** 
+
+Recall that a product of prime numbers can result to any integer $n>1$ . Notice that every prime factor is either $2$ or odd prime. if $n$ had an odd prime factor, then $n$ has an odd divisor. Otherwise, if $n$ has no odd divisor then it has no odd prime factor. Therefore, if $n$ is a power of two, then it cant have odd divisor.
+
+[Strange Partition]([Problem - 1471A - Codeforces](https://codeforces.com/problemset/problem/1471/A) - **Math**
+
+Note that, $\left\lceil \frac{a + b}{x} \right\rceil \leq \left\lceil \frac{a}{x} \right\rceil + \left\lceil \frac{b}{x} \right\rceil$ . We can get the maximum sum by keeping the array as it is, and we can the minimum sum by doing the operation until the array length is $1$
+
+[Sum Of Medians]([Problem - 1440B - Codeforces](https://codeforces.com/problemset/problem/1440/B)) - **Greedy**
+
+Notice that there are $\lceil \frac{n}{2} \rceil -1$ elements larger than the median, and there are $\lfloor \frac{n}{2} \rfloor$ elements smaller than the median.  We must efficiently waste the element larger than the median.Since the array is already sorted in a non decreasing order, we can loop $k$ times from the end of the array and jump $\lceil \frac{n}{2} \rceil -1$  element.
+
+[Three Indices]([Problem - 1380A - Codeforces](https://codeforces.com/problemset/problem/1380/A) - **Brute Force**
+
+Find an index $j$ such that $a[j-1] < a[j]$ and $a[j]>a[j+1]$ 
+
+[01 Game]([Problem - 1373B - Codeforces](https://codeforces.com/problemset/problem/1373/B) - **Greedy**
+
+let amount of two different adjacent characters = g, Notice that the g are determined by min(0s frequncy, 1s frequency) if g is odd then alice wins, otherwise bob wins. 
+
+[Multiply by 2, divide by 6]([Problem - B - Codeforces](https://codeforces.com/contest/1374/problem/B) - **Math**
+
+We can get to $1$ if $n$ only have $2$ and $3$ prime factors. Notice that division by $6$ removes $2$ and $3$ prime factors simultaneously decreasing both of them by $1$ . The amount of operation is equal to $(3s-2s)+3s$ . If there are more twos than threes, then its not possible, because we wont be able to remove enough twos to make 3s and 2s equal
