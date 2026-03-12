@@ -2,42 +2,40 @@
 using namespace std;
 #define int long long
 
+vector<int> psum(const vector<int> &arr) {
+ vector<int> psums(arr.size() + 1);
+ for (int i = 0; i < arr.size(); i++) { psums[i + 1] = psums[i] + arr[i]; }
+ return psums;
+}
+
+int dx[4] = {1, -1, 1, -1};
+int dy[4] = {1, 1, -1, -1};
+
 void solve(){
   int a, b;
+  int xk, xq, yk, yq;
   cin >> a >> b;
-  int xk, yk;
   cin >> xk >> yk;
-  int xq, yq;
   cin >> xq >> yq;
 
-  vector<pair<int, int>> fromKing;
-  fromKing.push_back(make_pair(xk+a, yk+b));
-  fromKing.push_back(make_pair(xk-a, yk+b));
-  fromKing.push_back(make_pair(xk+a, yk-b));
-  fromKing.push_back(make_pair(xk-a, yk-b));
+  set<pair<int, int>> kingAttackPos = {};
+  set<pair<int, int>> queenAttackPos = {};
 
-  fromKing.push_back(make_pair(xk+b, yk+a));
-  fromKing.push_back(make_pair(xk-b, yk+a));
-  fromKing.push_back(make_pair(xk+b, yk-a));
-  fromKing.push_back(make_pair(xk-b, yk-a));
 
-  map<pair<int, int>, int> fromQueen;
-  fromQueen[make_pair(xq+a, yq+b)] += 1;
-  fromQueen[make_pair(xq-a, yq+b)] += 1;
-  fromQueen[make_pair(xq+a, yq-b)] += 1;
-  fromQueen[make_pair(xq-a, yq-b)] += 1;
-
-  fromQueen[make_pair(xq+b, yq+a)] += 1;
-  fromQueen[make_pair(xq-b, yq+a)] += 1;
-  fromQueen[make_pair(xq+b, yq-a)] += 1;
-  fromQueen[make_pair(xq-b, yq-a)] += 1;
-
-  set<pair<int, int>> positions;
-  for(int i = 0; i < fromKing.size(); i++){
-    if(fromQueen[fromKing[i]]) positions.insert(fromKing[i]);
+  for(int i = 0; i < 4; i++){
+    kingAttackPos.insert({xk+dx[i]*a, yk+dy[i]*b});
+    queenAttackPos.insert({xq+dx[i]*a, yq+dy[i]*b});
+    kingAttackPos.insert({xk+dx[i]*b, yk+dy[i]*a});
+    queenAttackPos.insert({xq+dx[i]*b, yq+dy[i]*a});
   }
-  cout << positions.size() <<"\n";
+  
+  int ans = 0;
+  for(auto e : kingAttackPos){
+    auto it = queenAttackPos.find(e);
+    if(it != queenAttackPos.end()) ans += 1;
+  }
 
+  cout << ans << "\n";
 }
 
 int32_t main(){

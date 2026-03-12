@@ -15,18 +15,17 @@ void solve(){
   vector<int> a(n*k);
   for(auto& e : a) cin >> e;
 
-  //skips
-  int x = ((n+1)/2) - 1; 
-  x = n - x; 
+  int i = a.size();
 
-  int z = n*k;
-  int ans = 0;
+  int x = (n+1)/2 - 1;
+  x = n - x;
+  int sum = 0;
   while(k--){
-    z -= x;
-    ans += a[z];
+    i -= x;
+    sum += a[i];
   }
 
-  cout << ans << "\n";
+  cout << sum << "\n";;
 }
 
 int32_t main(){
