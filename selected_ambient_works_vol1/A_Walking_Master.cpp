@@ -2,18 +2,31 @@
 using namespace std;
 #define int long long
 
+vector<int> psum(const vector<int> &arr) {
+ vector<int> psums(arr.size() + 1);
+ for (int i = 0; i < arr.size(); i++) { psums[i + 1] = psums[i] + arr[i]; }
+ return psums;
+}
+
 void solve(){
   int a, b, c, d;
   cin >> a >> b >> c >> d;
 
-  if(d >= b && a-b >= c-d ){
-    cout << (d-b) + ((a+d-b)-c) << "\n";
-    return;
-  } else{
+  if(d < b){
     cout << -1 << "\n";
+    return;
   }
 
-  
+  int k = abs(d-b);
+  int new_a = a+k;
+  if(new_a < c){
+    cout << -1 << "\n";
+    return;
+  }
+  int ops = k + abs(new_a-c);
+
+  cout << ops << "\n";
+
 
 }
 

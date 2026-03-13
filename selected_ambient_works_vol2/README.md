@@ -228,5 +228,3 @@ The maximum move we can make is $min(c_0,c_1)$ .
 let $cnt_2$ be the frequency of twos factor and $cnt_3$ be the frequency of threes factor, if there are other prime factors than $2$ and $3$ , then it's not possible, and if $cnt_2$ > $cnt_3$ then its not possible. Otherwise, the answer is $(cnt_3-cnt_2)+cnt_3$
 
 Notice that dividing by $6$ simultaneously removes $2$ and $3$ factors, while multiplying by $2$ increases $2$ factor.If $n$  has other prime factors than $2$ and $3$ then its not possible. if $cnt_2>cnt_3$ then we cant make $2$ and $3$ factors equal because we can only increase $2$ . Otherwise, $(cnt_3-cnt_2)$ gives how many operation needed to make $cnt_2$ equal to $cnt_3$ and $+cnt_3$ gives how many operation to exhaust $3$ factors by dividing by $6$ 
-
- 

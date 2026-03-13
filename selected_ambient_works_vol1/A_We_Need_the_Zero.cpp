@@ -2,28 +2,32 @@
 using namespace std;
 #define int long long
 
+vector<int> psum(const vector<int> &arr) {
+ vector<int> psums(arr.size() + 1);
+ for (int i = 0; i < arr.size(); i++) { psums[i + 1] = psums[i] + arr[i]; }
+ return psums;
+}
+
 void solve(){
   int n;
   cin >> n;
 
-  int x = 0;
   vector<int> a(n);
-  for(auto& e : a){
-    cin >> e;
-    x ^= e;
+  for(auto& e : a) cin >> e;
+
+  int XOR = 0;
+  for(auto e : a){
+    XOR ^= e;
   }
-
-
-  if(n % 2 ==0){
-    if(x == 0){
-      cout << 1 << "\n";
-    } else{
+  if(n % 2 == 0){
+    if(XOR != 0){
       cout << -1 << "\n";
+    } else{
+      cout << 0 << "\n";
     }
   } else{
-    cout << x << "\n";
+    cout << XOR << "\n";
   }
-
 }
 
 int32_t main(){

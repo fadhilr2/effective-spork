@@ -2,22 +2,29 @@
 using namespace std;
 #define int long long
 
+vector<int> psum(const vector<int> &arr) {
+ vector<int> psums(arr.size() + 1);
+ for (int i = 0; i < arr.size(); i++) { psums[i + 1] = psums[i] + arr[i]; }
+ return psums;
+}
+
 void solve(){
   int n;
   cin >> n;
   string s;
   cin >> s;
 
-  int left = 0, right = n-1;
-
+  int i = 0;
+  int j = n-1;
   int cnt = 0;
-  while(left < right &&(s[left] != s[right])){
-    cnt += 1;
-    left += 1;
-    right -= 1;
+  while(s[i] != s[j] && i < j){
+    cnt += 1  ;
+    i += 1;
+    j -= 1;
   }
-
-  cout << n - (2*cnt) << "\n";
+  
+  cout << n - (cnt*2) << "\n";
+  
 }
 
 int32_t main(){

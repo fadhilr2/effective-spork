@@ -36,196 +36,323 @@
 | **Extremely Round**             | **Greedy**         | Precompute all extremely round numbers up to $10^6$ and count those $\le n$.                                                               |
 | **Two Permutations**            | **Math**           | Possible if $a=b=n$ or $a+b+2 \le n$.                                                                                                      |
 
-# 1. Nature of 800 Problems
-
-At 800 rating, problems usually test:
-
-- One key observation
-
-- One invariant
-
-- One parity trick
-
-- One greedy “smallest move”
-
-- Or one construction pattern
-
-# 2. Patterns
-
-breakdown of common 800 rated problem patterns
-
-# A. Invariant
-
-These problems give you an operation and ask if a state is reachable.
-
-Key idea: **Something never changes.**
-
-### Swap / Movement Invariants
-
-- **Halloumi Boxes** k ≥ 2 = full swap power (bubble sort logic)
-
-- **Jagged Swaps** a₁ never moves
-
-- **Walking Master** x − y invariant
-
-- **We Need The Zero** XOR invariant
-
 ---
 
-### Math and Parity Invariants
+## 1. Parity Tricks (Most Common)
 
-- **Array Coloring** sum change when if there's an odd numbers
+Many 800 problems reduce to **counting odd/even numbers**.
 
-- **Unit Array** product of even amount of negatives equal to positive
+Key rules:
 
-- **Odd Set** even * odd = odd
+```
+odd + odd = even
+even + even = even
+odd + even = odd
+```
 
-- **One and Two** ones doesnt have an effect on the product
+Common checks:
 
-- **Buttons** if c is odd, its katie turn after c is exhausted. Otherwise, if c is even, its anna turns after c is exhausted
-
-- *Serval and Mocha's Array* relies on the fact that the GCD of a prefix can only stay the same or decrease as you add more numbers.
-
----
-
-### Zero-Sum Systems
-
-- **Goals of Victory** sum of efficiency always 0
-
-- Some XOR problems
-
----
-
-# B. Greedy - Smallest Possible Move
-
-Many 800-rated problems can be solved by looking for the absolute minimum requirement to satisfy a condition.
+```
+odd_count % 2
+even_count == odd_count
+sum % 2
+```
 
 Examples:
 
-- **How much does daytona cost?** subsegment length 1
+- Array Coloring
 
-- **Ambitious Kid**  make just one element zero
+- Odd Set
 
-- **Desorting**  smallest adjacent difference
+- Unit Array
 
-- **Coins** only need to check 0 or 1 large coin
+- Everybody Likes Good Arrays
 
-If answer involves:
+Recognition:
 
-- “Exists”
-
-- “At least one”
-
-- “Minimum operation”
-
-Try smallest possible structure.
+> If problem mentions **odd/even**, convert numbers to parity.
 
 ---
 
-# C. Frequency-Based Logic
+# 2. Greedy with Simple Observations
 
-Very common in **constructive/math** problems.
+Usually **choose the obvious optimal move**.
 
-- **Doremy's Paint 3** Valid if there are only two numbers
+Typical patterns:
 
-- **Good Arrays**  Count how many $a[i] \neq a[i+1]$
+```
+max gap
+minimum difference
+check extremes
+```
 
-- **Polycarp and Coins** Start with equal frequencies
+Examples:
 
-- **Arithmetic Array** Counting how many zeroes needed for even cases. For negative sum, finding a number k that's equal to = n+1 
+- Line Trip → max distance gap
 
-800 problems often don’t care about positions only counts.
+- Halloumi Boxes → if k ≥ 2 array sortable
 
----
+- Desorting → smallest adjacent difference
 
-# D. Alternating / Symmetry Construction
+Recognition:
 
-These are pure **constructive** thinking.
-
-- **Twin Permutations** → bᵢ = n+1−aᵢ
-
-- **Make it Beautiful** → max + min first
-
-- **Doremy’s Paint 3** → alternate two values
-
-- **Sequence Game** → pad duplicates
-
-Common patterns:
-
-- Reflect around center
-
-- Alternate two values
-
-- Use max/min pairing
+> If constraints small and operations simple → greedy.
 
 ---
 
-# E. Gap / Distance Maximum Problems
+# 3. Frequency Counting
 
-- **Line Trip** Finding max distance
+Instead of simulation, **count occurrences**.
 
-- **Blank Space** if $a[i]\neq a[i+1]$ then its a gap, or a separator
+Typical logic:
 
-- **Extremely Round** Extremely Round number is rare, therefore there is a huge gaps between each Extremely Round number
+```
+count occurrences
+compare frequencies
+check existence
+```
+
+Examples:
+
+```
+if k exists in array → answer YES
+count number of 2s
+count odd/even numbers
+```
+
+Examples from notes:
+
+- Daytona Cost
+
+- One and Two
+
+- Doremy’s Paint
+
+Recognition:
+
+> If question asks about **existence or equality**, count.
 
 ---
 
-# F. Divisibility / Modulo Pattern
+# 4. Math Invariants
 
-Very common trick:
+Many problems depend on **unchanging values**.
 
-- **Number Game** → mod 3
+Common invariants:
 
-- **Grasshopper on a Line** 
+```
+x - y
+gcd
+sum
+parity
+```
 
-- **Digit Sum**
+Example:
 
-- **Coins** two coins of denomination k, can be swapped with k coins of denomination k
+```
+(x+1,y+1) → x-y unchanged
+```
 
-If problem mentions:
+Example problems:
 
-- Turns
+- Walking Master
 
-- Repeated operations
+- Serval and Mocha
 
-- Cycles
+- Goals of Victory
 
-→ Try modulo.
+Recognition:
 
-### Is it transformation-based?
+> If operations modify values but pattern remains → invariant.
 
-Ask:
+---
 
-- What stays constant?
+# 5. Range / Formula Problems
 
-- Parity?
+Often solved with **simple formulas**.
 
-- XOR?
+Examples:
 
-- Sum?
+Mean condition
 
-- Difference?
+```
+sum == n
+```
 
-### Does it say “exists”?
+Goal difference
 
-Try:
+```
+missing = -sum(a[i])
+```
 
-- Single element
+Digit counting
 
-- Pair
+```
+answer = (n + 1) / 10
+```
 
-- Length 1 segment
+Examples:
 
-### Is order irrelevant?
+- Arithmetic Array
 
-Convert to:
+- Digit Sum
 
-- Count odds
+- Goals of Victory
 
-- Count frequencies
+Recognition:
 
-- Count segments
+> If input only numbers and answer simple → derive formula.
 
-### Is it distance/coverage?
+---
 
-Sort and check gaps.
+# 6. Greedy Construction
+
+Sometimes build the array directly.
+
+Typical constructions:
+
+```
+alternate values
+reverse order
+place min and max first
+```
+
+Examples:
+
+- Twin Permutations
+
+- Sequence Game
+
+- Make it Beautiful
+
+Recognition:
+
+> If output requires building array → constructive greedy.
+
+---
+
+# 7. Segment / Run Counting
+
+Many problems reduce to **counting segments**.
+
+Typical pattern:
+
+```
+if a[i] == a[i+1] → same segment
+if a[i] != a[i+1] → separator
+```
+
+Key formula:
+
+```
+segments = separators + 1
+operations = n - segments
+```
+
+Example:
+
+- Everybody Likes Good Arrays
+
+- Blank Space
+
+Recognition:
+
+> Convert array into **segments of same values**.
+
+---
+
+# 8. XOR Tricks
+
+Key XOR rules:
+
+```
+x ^ x = 0
+x ^ 0 = x
+a ^ b ^ a = b
+```
+
+Example logic:
+
+```
+if n even:
+  XOR cancels
+if n odd:
+  x = XOR(all elements)
+```
+
+Example:
+
+- We Need The Zero
+
+Recognition:
+
+> If XOR involved → use cancellation.
+
+---
+
+# 9. Small Constraint Brute Force
+
+If limits tiny:
+
+```
+simulate
+repeat few times
+double string
+```
+
+Example:
+
+- Don't Try To Count
+
+Recognition:
+
+> If `n * m ≤ 25` or similar → brute force.
+
+---
+
+# 10. Special Number Patterns
+
+Certain numbers behave differently.
+
+Examples:
+
+Digit pattern
+
+```
+numbers ending in 9
+```
+
+Round numbers
+
+```
+1,2,3...9
+10,20...
+```
+
+Example:
+
+- Extremely Round
+
+- Digit Sum
+
+Recognition:
+
+> If problem about digits → look for patterns.
+
+---
+
+# Instant Contest Checklist (800 Problems)
+
+Before coding ask:
+
+```
+1. Is this just parity?
+2. Can I count frequencies?
+3. Does only max/min matter?
+4. Is there a simple formula?
+5. Can I reduce to segments?
+6. Is there an invariant?
+7. Can XOR cancel values?
+```
+
+---
