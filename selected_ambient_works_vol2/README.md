@@ -76,7 +76,7 @@ add 1 to all elements equal to 1. Then, if $a_i$ is a divisor of $a_{i+1}$ , add
 
 $1$ is a divisor of every number, hence why we need to make it $2$ .  
 
-[Mainak and Array]([Problem - 1726A - Codeforces](https://codeforces.com/problemset/problem/1726/A) - **Greedy**
+[Mainak and Array](https://codeforces.com/problemset/problem/1726/A) - **Greedy**
 
 We can check all the possible combination of $a_n$ and $a_1$  without simulating the cyclic rotation. The following are all possibles combination:
 
@@ -88,13 +88,13 @@ We can check all the possible combination of $a_n$ and $a_1$  without simulating
 
 We can only choose one segment, we can choose segment $1$ to $n-1$ , this allows us to get all possible combination of $a_1$ . Segment $2$ to $n$ , allows us to get all possible combination of $a_n$ . Segment $1$ to $n$ , allows us to get the rest of $a_n$ and $a_1$ combination. 
 
-[NIT Destroys the Universe]([Problem - 1696B - Codeforces](https://codeforces.com/problemset/problem/1696/B) - **Greedy**
+[NIT Destroys the Universe](https://codeforces.com/problemset/problem/1696/B) - **Greedy**
 
 we can do the operation against the entire array, except if there are zero in a non zero segment, we must do the operation twice against the entire array.
 
 Notice that at most the operation is $2$ . If there are no zero in a non zero segment, we can choose said non zero segment, and pick $0$ as the smallest integer that is not in the segment. Otherwise, we must do operation against the entire array first, and make $w$ to arbitrary smallest integer that is not in the segment, leaving us with an array of equal elements greater than $0$ , Therefore, we can do the operation against the entire array again, and pick $0$ .  
 
-[Avtobus]([Problem - 1679A - Codeforces](https://codeforces.com/problemset/problem/1679/A) - **Math**
+[Avtobus](https://codeforces.com/problemset/problem/1679/A) - **Math**
 
 The maximum is equal to $n/4$ . The minimum is equal to $\lceil n/6 \rceil$  
 
@@ -106,19 +106,19 @@ divide $a_i$ until it's less than $a_{i+1}$ such that $1<=i<=n-1$  . Except, if 
 
 We must do the loop from $n-1$ to create an increasing array, because for an ascending array, the elements before $n$ must be less than $n$ . if $a_i=0$ and $a_i==a_{i+1}$  then it wont be possible because there are no positive integer less than $0$  
 
-[Deletive Editing]([Problem - 1666D - Codeforces](https://codeforces.com/problemset/problem/1666/D?adcd1e=caf4fy5tvfa9yh&csrf_token=7f955356994948207dacd978c84a9981) - **Greedy**
+[Deletive Editing](https://codeforces.com/problemset/problem/1666/D?adcd1e=caf4fy5tvfa9yh&csrf_token=7f955356994948207dacd978c84a9981) - **Greedy**
 
 It doesn't matter what order of character we called, we only considered how many times a character is called to get from $s$ to $t$  and its ordering. 
 
 Says $s_a$ and $t_a$ are character occurences for both $s$ and $t$ . If $s_a-t_a<0$ then it wont possible as there are less character from called out character. But this is not enough to verify the answer, we have to check if the order is correct, we can simulate the game, and remove $s_a-t_a$ characters at first occurence.    
 
-[Array Cloning Technique]([Problem - 1665B - Codeforces](https://codeforces.com/problemset/problem/1665/B) - **Greedy**
+[Array Cloning Technique](https://codeforces.com/problemset/problem/1665/B) - **Greedy**
 
 Let character with largest frequency be $g$ . Do cloning and swapping operation until $g$ is equal to $n$. if at some point $g$  is greater than $n$ , then we only need to take $n-g$ .
 
 Notice that for every cloning, we are doubling the characters frequencies. To reach the minimum operation, we must use the character with the larget frequency to the operation against.
 
-[Make AP]([Problem - 1624B - Codeforces](https://codeforces.com/problemset/problem/1624/B) - **Math**
+[Make AP](https://codeforces.com/problemset/problem/1624/B) - **Math**
 
 Fix one on number and assume the rest forms an AP. We need to fix on three numbers, then replace said number, with a number that forms an AP. Then check if the  new number is positive, and divisible by the old value, the quotient will be $m$ . 
 
@@ -130,7 +130,7 @@ If the new number is divisible by old number, then said number is multiplies of 
 
 3. Fixing on $b$ , $b_{new}$ must hold the following condition $b-a=c-b$ then $2b=a+c$ lastly $b=\frac{a+c}{2}$ . For this case, we also have to check if $a+c$ is divisible by $2$ , otherwise $b_{new}$ will never be divisible by $b$ 
 
-[Odd Grasshopper]([Problem - B - Codeforces](https://codeforces.com/contest/1607/problem/B) -  **Math**
+[Odd Grasshopper](https://codeforces.com/contest/1607/problem/B) -  **Math**
 
 We only need to calculate the displacement. For case $x_0=0$ , let $d$ be displacement, and there are 4 displacement:
 
@@ -161,7 +161,7 @@ $0, n = 4$
 
 Notice that the jump went from left, right, right. Notice that for every jump that's multiple of $4$  , the point gets back to $x_0$ again, if we look closely there are also repeating patterns for the next $4$ jumps. For non zero even case, we can look closely that $d$ will be the same, hence $x_n=x_0+d$ . On the other hand, non zero odd cases, we can look closely that $d$ is the opposite of even, which goes, right, left, left, hence $x_n=x_0-d$ .
 
-[AB Balance]([Problem - A - Codeforces](https://codeforces.com/contest/1606/problem/A) - **Greedy**
+[AB Balance](https://codeforces.com/contest/1606/problem/A) - **Greedy**
 
 We only have to match $s_1$ and $s_n$ to create $s$ with $AB=BA$ 
 
@@ -169,43 +169,43 @@ Notice that balance of $AB$ and $BA$ are determined by the first letter and last
 
 We can proof this by induction, if the string consist of equal characters, then $AB=BA$ , if the string has more complex structure, but $s_1=s_n$ ,then there will be $s_i$ that matches $s_1$ and $s_n$ that splits the string in half $[1..i]$ and $[i..n]$ . Both these string has $AB=BA$ , so our string $s$ has also $AB=BA$ . 
 
-[Make it Divisible by 25]([Problem - 1593B - Codeforces](https://codeforces.com/problemset/problem/1593/B) - **Greedy**
+[Make it Divisible by 25](https://codeforces.com/problemset/problem/1593/B) - **Greedy**
 
 We have to remove digits from the right until it matches the end digit of end digits that is divisible by $25$ , then remove digit after the matched end digit, until it matches first digit of end digits that is divisible by $25$ .
 
 Notice that number that's divisible by $25$ has the following end digits $\{25, 50, 75, 00\}$ , hence why matching the end digits is the optimal solution.
 
-[Luntik and Subsequence]([Problem - B - Codeforces](https://codeforces.com/contest/1582/problem/B) - **Math**
+[Luntik and Subsequence](https://codeforces.com/contest/1582/problem/B) - **Math**
 
 We have to calculate how many ways we can remove zeros and ones, which is equal to $2^{c_0}*c_1$ , where $c_0$ is zeroes count, and $c_1$ is ones count.
 
 Notice that $0$ s doesn't effect the sum and we can get nearly full sum by removing exactly one $1$ , hence why we need to calculate how many ways we can remove zeroes AND ones. Removing zeroes is like a binary switch, for each zero, we can either keep it or remove it, therefore for each zero there is $2$ combinations, hence why $2^{c_0}$ . 
 
-[Mocha and Math]([Problem - 1559A - Codeforces](https://codeforces.com/problemset/problem/1559/A)) - **Greedy**
+[Mocha and Math](https://codeforces.com/problemset/problem/1559/A) - **Greedy**
 
 We can do the bitwse AND operation against the entire array to minimize the maximum value.
 
 Notice that for bitwise AND operation, if we add more values to it, the value will either stay or decrease, in formal ways $\{a_i\&a_{i+1}\&\dots\&a_{r}\}<=max(\{a_i,a_{i+1},\dots,a_{r}\}) $  . To minimize the maximum value as much as possible, we have to add as much elements to the bitwise AND operation, hence why we must do the operation against the entire array. 
 
-[Exciting Bets]([Problem - 1543A - Codeforces](https://codeforces.com/problemset/problem/1543/A) - **Math**
+[Exciting Bets](https://codeforces.com/problemset/problem/1543/A) - **Math**
 
 let $g$ be $|a-b|$ , the excitement is equal to $g$ , the minimum operation is equal to $min(a \ mod \ g, g-(a \ mod \ g))$ .
 
 Notice that $|a-b|$ never changes, let this be $g$ , assume $a>b$ , then notice that $gcd(a,b)=gcd(g,b)$ , we can arbitrarily change the value of $b$ . To achieve the $gcd$ , we can either change the value of $b$ to the largest multiple of $g$ that is less than or equal to $b$ , or change the value of $b$ to the  smallest multiple of $g$ that is greater than or equal to $b$ . $a \ mod \ g$ is the difference to the nearest multiple of $g$ that is less than or equal to $b$ . While $g - (a \ mod \ g)$ is the difference to the nearest multiple of $g$ that is greater than or equal to $b$ , both in respect to $b$ , but then notice that when we change $b$ we also change $a$ , and still retains $g$ , so it doesnt matter in what respect.
 
-[Odd Divisor]([Problem - 1475A - Codeforces](https://codeforces.com/problemset/problem/1475/A) - **Math** 
+[Odd Divisor](https://codeforces.com/problemset/problem/1475/A) - **Math** 
 
 Divide $n$ by $2$ until its not divisible by $2$ , if $n=1$ then there are no odd divisors.
 
 Recall that we can construct any number $>=1$ by the product of prime numbers. Notice that there is only one even prime number, which is $2$ . If a number is a power of $2$ , then there's no odd divisor, or in other words, if we exhaust $2$ factors , and there are no other factor of prime, then there's no odd divisors.
 
-[Strange Partition]([Problem - 1471A - Codeforces](https://codeforces.com/problemset/problem/1471/A) - **Math**
+[Strange Partition](https://codeforces.com/problemset/problem/1471/A) - **Math**
 
 Let the sum of $b$ be $s$ , the minimum beauty we can get is $\lceil \frac{s}{x} \rceil$ , while the maximum beauty we can get is $\lceil \frac{b_i}{x}\rceil +\dots+\lceil \frac{b_n}{x}\rceil$ in other words, we retain the array structure.
 
 Notice that $\lceil \frac{s}{x} \rceil <= \lceil \frac{b_i}{x}\rceil +\dots+\lceil \frac{b_n}{x}\rceil$ . 
 
-[Sum Of Medians]([Problem - 1440B - Codeforces](https://codeforces.com/problemset/problem/1440/B)) - **Greedy**
+[Sum Of Medians](https://codeforces.com/problemset/problem/1440/B) - **Greedy**
 
 We need to sum the medians from the right.
 
@@ -217,13 +217,13 @@ Find an index $j$ such that $a[j-1] < a[j]$ and $a[j]>a[j+1]$ .
 
 Notice that since it's a permutation, there won't be a case of adjacents dupe number. 
 
-[01 Game]([Problem - 1373B - Codeforces](https://codeforces.com/problemset/problem/1373/B) - **Greedy**
+[01 Game](https://codeforces.com/problemset/problem/1373/B) - **Greedy**
 
 Let frequency of zero be $c_0$ and frequency of one be $c_1$ , if $min(c_0, c_1)$ is not divisible by $2$ , then alice wins, otherwise bob wins
 
 The maximum move we can make is $min(c_0,c_1)$ .
 
-[Multiply by 2, divide by 6]([Problem - B - Codeforces](https://codeforces.com/contest/1374/problem/B) - **Math**
+[Multiply by 2, divide by 6](https://codeforces.com/contest/1374/problem/B) - **Math**
 
 let $cnt_2$ be the frequency of twos factor and $cnt_3$ be the frequency of threes factor, if there are other prime factors than $2$ and $3$ , then it's not possible, and if $cnt_2$ > $cnt_3$ then its not possible. Otherwise, the answer is $(cnt_3-cnt_2)+cnt_3$
 

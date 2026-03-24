@@ -23,7 +23,7 @@ Vanya wins if $n \pmod 3 \neq 0$ by making it divisible on turn 1. If $n \pmod 3
 
 Vanya wins if she can immediately make $n$ divisible by 3. If $n \pmod 3 \neq 0$, Vanya wins on her first turn by adding or subtracting 1. If $n \pmod 3 = 0$, Vova can always counter Vanya’s moves to keep the number divisible by 3 on his turn, eventually winning.
 
-[Jagged Swaps](https://codeforces.com/problemset/problem/1896/A) - **Greedy**
+[Jagged Swaps](https://codeforces.com/problemset/problem/1896/A) - **Constructive**
 
 $a_1$ is immutable. If $a_1 \neq 1$, it can never be sorted because 1 can't move to the front.
 
@@ -96,7 +96,7 @@ Find smallest $diff = a_{i+1} - a_i$. Operations needed: $\lfloor diff / 2 \rflo
 
 Since each operation moves the elements toward each other by 2 units total, increasing $a_i$ and decreasing $a_{i+1}$. Let $a_i=a$ and $a_{i+1}=b$ , $a+x=b-x$ , we can isolate the $x$ , $x=\frac{b-a}{2}$ , then we have add one, otherwise it's gonna be equal.
 
-[Forbidden Integer](https://codeforces.com/problemset/problem/1845/A) - **Greedy**
+[Forbidden Integer](https://codeforces.com/problemset/problem/1845/A) - **Constructive**
 if $x \neq 1$ then we can take $n$ amount of ones, otherwise there's two conditions:
 
 1. If $n$ is less than $k$ then its not possible
@@ -135,13 +135,13 @@ An even amount of $k$ burles can be replaced with $k$ amount of $2$ burles, we o
 
 Notice that an even amount of $k$ burles is a multiplies of $2$, hence why we can replace it with $k$ amount of two burles. If looked closely, this means at most we only have to use $1$ $k$ burle, as that is the biggest remainder we can get from division by two .
 
-[Walking Master]([Problem - 1806A - Codeforces](https://codeforces.com/problemset/problem/1806/A)) - **Math**
+[Walking Master](https://codeforces.com/problemset/problem/1806/A) - **Math**
 
 let $|d-b|$ be $g$ , we only need to check $d<b$ , and $a+g<c$ , the minimum operation is equal to $g+|a-b|$ , if both condition passed.
 
 We first must match the $y$ first, hence $|d-b|$ , but this won't be possible if $d<b$ , recall that the constraints state that we can only move $+1$ on the $y$ axis. After $y$ is matched, we need to match $x$ , but this is not possible if $c>b$ , because we can only move $-1$ on the $x$ axis.
 
-[We need the zero](https://codeforces.com/problemset/problem/1805/A) - **Construction** 
+[We need the zero](https://codeforces.com/problemset/problem/1805/A) - **Bitmask** 
 
 We first need to do XOR operation against the entire array, let this result be $g$ . If the array is even and $g==0$ , then its $0$ , otherwise its not possible. If the array is odd then its $g$ .
 
@@ -157,7 +157,7 @@ If there exists a pair of $i$ and $j$  , such that $gcd(a_i, a_{j})<=2$ , then i
 
 If there exists a pair of number that is $good$, then the whole array can be reordered to be $beautiful$ . Recall that $gcd(x,y)<=min(x,y)$ , in other words, as more elements are added, the $gcd$ wont get larger. Hence, if there exist a pair, such that $gcd(a_i,a_j)<=2$ or a $good$  pair , we can move it to the front, and the array wil be beautiful.
 
-[One and Two](https://codeforces.com/problemset/problem/1788/A) - **Greedy** 
+[One and Two](https://codeforces.com/problemset/problem/1788/A) - **Math** 
 
 let $g$ be equal to $n/2$ . if $n$ is not divisible by $2$ then its not possible. Otherwise,   iterate from $i$ ,such that $1<=i<=n$ , let $cnt2$ be a counter of $2$ occurrence, iterate until $cnt2=g$ , then $k=cnt2$ .
 
@@ -168,11 +168,11 @@ If we put the maximum in the array on the first position, then for every element
 
 Let's put the maximum element on the first position, the minimum element on the second position, and then fill the rest of the array arbitrarily. The only case when it fails is when the maximum element is equal to the minimum element — and it's easy to see that if the maximum is equal to the minimum, then the first element of the array will be equal to the second element no matter what, and the array cannot become beautiful.
 
-[Everybody Likes Good Arrays]([Problem - 1777A - Codeforces](https://codeforces.com/problemset/problem/1777/A) - **Greedy** 
+[Everybody Likes Good Arrays](https://codeforces.com/problemset/problem/1777/A) - **Greedy** 
 
 We only need to count how many pairs with same parity.
 
-[Extremely Round]([Problem - 1766A - Codeforces](https://codeforces.com/problemset/problem/1766/A) - **Brute Force** 
+[Extremely Round](https://codeforces.com/problemset/problem/1766/A) - **Brute Force** 
 
 initialize an array that contains number with $1$ digit within $1<=x<=999999$ , let this be $a$ , iterate through $a$ and count, if $a_i>n$ then stops.
 
